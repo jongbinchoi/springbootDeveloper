@@ -28,23 +28,23 @@ public class BlogApiController {
     }
 
     @GetMapping("/api/articles")
-    public ResponseEntity<List<ArticleResponse>> findAllarticles(){
-        List<ArticleResponse> artcles = blogService.findAll()
+    public ResponseEntity<List<ArticleResponse>>findAllArticles(){
+        List<ArticleResponse> articles = blogService.findAll()
                 .stream()
                 .map(ArticleResponse::new)
                 .toList();
 
         return ResponseEntity.ok()
-                .body(artcles);
+                .body(articles);
     }
 
     @GetMapping("/api/articles/{id}")
     //URL 경로에서 값 추출
     public ResponseEntity<ArticleResponse> findArticle(@PathVariable long id){
-        Article artile =blogService.findById(id);
+        Article article =blogService.findById(id);
 
         return ResponseEntity.ok()
-                .body(new ArticleResponse(artile));
+                .body(new ArticleResponse(article));
     }
 
     @DeleteMapping("/api/articles/{id}")

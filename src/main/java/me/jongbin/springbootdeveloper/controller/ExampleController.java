@@ -16,7 +16,7 @@ public class ExampleController {
     public String thymeleafExample(Model model) {
         Person examplePerson = new Person();
         examplePerson.setId(1L);
-        examplePerson.setName("홍동");
+        examplePerson.setName("홍길동");
         examplePerson.setAge(11);
         examplePerson.setHobbies(List.of("운동", "독서"));
 

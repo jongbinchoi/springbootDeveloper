@@ -22,7 +22,8 @@ public class BlogService {
     }
 
     public List<Article> findAll(){
-        return blogRepository.findAll();//findall 테이블에 저장된 모든데이터조회\
+
+        return blogRepository.findAll();//findall 테이블에 저장된 모든데이터조회
     }
 
     public Article findById(long id){
@@ -30,8 +31,12 @@ public class BlogService {
                 .orElseThrow(()->new IllegalArgumentException("not found: "+id));
     }
 
-    public void delete(long id){
-        blogRepository.deleteById(id);
+    public void delete(long id) {
+        Article article = blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
+
+        authorizeArticleAuthor(article);
+        blogRepository.delete(article);
     }
 
     @Transactional

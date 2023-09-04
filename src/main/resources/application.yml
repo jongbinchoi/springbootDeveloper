@@ -1,30 +1,26 @@
-          spring:
-            jpa:
-              # 전송 쿼리 확인
-              show-sql: true
-              properties:
-                hibernate:
-                  format_sql: true
-                  #테이블 생성후에 data.sql 실행
-              defer-datasource-initialization: true
-            datasource: #데이터베이스 정보추가
-              url: jdbc:h2:mem:testdb
-              username: sa
-            h2: #H2 콘솔 활성화
-              console:
-                enabled: true
-
-                jwt:
-                  issuer: ajufresh@gmail.com
-                  secret_key: study-springboot
-
-          security:
-            oauth2:
-              client:
-                registration:
-                  google:
-                    client-id:
-                    clietn-secret:
-                    scope:
-                      - email
-                      - profile
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  h2:
+    console:
+      enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 365078127501...
+            client-secret: GOCSPX...
+            scope:
+              - email
+              - profile
+jwt:
+  issuer: ajufresh@gmail.com
+  secret_key: study-springboot
